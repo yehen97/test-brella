@@ -1,7 +1,7 @@
 Feature: Register Page UI Validation
 
   @Test @SuccessFlow
-  Scenario Outline: Verify that Successfully User can create a user
+  Scenario Outline: Verify that user is able to submit the form with valid data and see data saved
     Given I want to open the Brella Browser
     And I want to enter name as "<Name>"
     And I want to turn on status
@@ -18,7 +18,7 @@ Feature: Register Page UI Validation
 
 
   @Test @ErrorFlow
-  Scenario Outline: Verify that User Error message for invalid Email
+  Scenario Outline: Verify that user is able to enter an invalid email and see validation error
     Given I want to open the Brella Browser
     And I want to enter name as "<Name>"
     And I want to turn on status
