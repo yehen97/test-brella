@@ -1,9 +1,33 @@
 Feature: Register Page UI Validation
 
-  @Test
-  Scenario Outline: Verify that Browser Open the Url
+  @Test @SuccessFlow
+  Scenario Outline: Verify that Successfully User can create a user
     Given I want to open the Brella Browser
+    And I want to enter name as "<Name>"
+    And I want to turn on status
+    And I want to enter Email as "<Email>"
+    And I want to enter Input Number as "<inputNumber>"
+    And I want to select Year as "<Year>"
+    And I want to click on save button
+    Then I want check on confimration alert as "<Alert>"
 
     Examples:
-      | acctNumber |threeDSRequestorChallengeInd |merchantCountryCode|purchaseCurrency|purchaseAmount|MessageCategory|value|deviceChannel|threeRIInd|
-      | 4283759991999111 |02 |840|840|650000|02|Y|03|01|
+      | Name     | Email                | inputNumber | Year | Alert            |  |
+      | Yehen    | yehen@1997@gmail.com | 50          | 2024 | cool, it is done |  |
+      | Chathuma | yehen@1997@gmail.com | 60          | 2024 | cool, it is done |  |
+
+
+  @Test @ErrorFlow
+  Scenario Outline: Verify that User Error message for invalid Email
+    Given I want to open the Brella Browser
+    And I want to enter name as "<Name>"
+    And I want to turn on status
+    And I want to enter Email as "<Email>"
+    And I want to enter Input Number as "<inputNumber>"
+    And I want to select Year as "<Year>"
+    And I want to click on save button
+    Then I want check on error alert as "<Alert>"
+
+    Examples:
+      | Name  | Email              | Year | inputNumber | Alert                |
+      | Yehen | yehen1997gmail.com | 2023    | 50          | email doesn't have @ |
